@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ApplyRequestController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +17,4 @@ use App\Http\Controllers\ApplyRequestController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('apply', ApplyRequestController::class);
+Route::resource('application', ApplicationController::class);

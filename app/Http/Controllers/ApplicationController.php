@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ApplyRequest;
+use App\Models\Application;
 use Illuminate\Http\Request;
 
-class ApplyRequestController extends Controller
+class ApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,10 @@ class ApplyRequestController extends Controller
      */
     public function index()
     {
-        return view('application-index');
+        $components = [
+            'requests' => Application::all(),
+        ];
+        return view('application-index', $components);
     }
 
     /**
@@ -41,10 +44,10 @@ class ApplyRequestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ApplyRequest  $applyRequest
+     * @param  \App\Models\Application  $Application
      * @return \Illuminate\Http\Response
      */
-    public function show(ApplyRequest $applyRequest)
+    public function show(Application $Application)
     {
         //
     }
@@ -52,10 +55,10 @@ class ApplyRequestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ApplyRequest  $applyRequest
+     * @param  \App\Models\Application  $Application
      * @return \Illuminate\Http\Response
      */
-    public function edit(ApplyRequest $applyRequest)
+    public function edit(Application $Application)
     {
         //
     }
@@ -64,10 +67,10 @@ class ApplyRequestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ApplyRequest  $applyRequest
+     * @param  \App\Models\Application  $Application
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ApplyRequest $applyRequest)
+    public function update(Request $request, Application $Application)
     {
         //
     }
@@ -75,10 +78,10 @@ class ApplyRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ApplyRequest  $applyRequest
+     * @param  \App\Models\Application  $Application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ApplyRequest $applyRequest)
+    public function destroy(Application $Application)
     {
         //
     }

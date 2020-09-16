@@ -7,14 +7,14 @@
 
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
-			<li class="nav-item active">
+			<li class="nav-item {{ (request()->segment(1) == '') ? 'active' : '' }}">
 			<a class="nav-link" href="{{ route('home') }}">Home</a>
 			</li>
-			<li class="nav-item">
-			<a class="nav-link" href="{{ route('apply.create') }}">Inschrijven</a>
+			<li class="nav-item {{ (request()->segment(1) == 'application' && request()->segment(2) == 'create' ) ? 'active text-primary' : '' }}">
+			<a class="nav-link " href="{{ route('application.create') }}">Inschrijven</a>
 			</li>
-			<li class="nav-item">
-			<a class="nav-link" href="{{ route('apply.index') }}">Inschrijvingen</a>
+			<li class="nav-item {{ (request()->segment(1) == 'application' && request()->segment(2) == '') ? 'active text-primary' : '' }}">
+			<a class="nav-link" href="{{ route('application.index') }}">Inschrijvingen</a>
 			</li>
 		</ul>
 		</div>
