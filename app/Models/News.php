@@ -21,5 +21,9 @@ class News extends Model
         return $this->orderBy('created_at')->take($number)->get();
     }
 
+    public function getNewsItem($id)
+    {
+        return $this->where('id', $id)->first();
+    }
 
 }

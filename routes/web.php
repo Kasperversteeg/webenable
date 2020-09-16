@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ use App\Http\Controllers\ApplicationController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('application', ApplicationController::class);
+Route::resource('news', NewsController::class);

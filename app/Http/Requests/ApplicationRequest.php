@@ -13,7 +13,7 @@ class ApplicationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,32 @@ class ApplicationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return [    
+            'gender' => [
+                'required'
+            ],
+            'name' => [
+                'required'
+            ],
+            'surname' => [
+                'required'
+            ],
+            'mail' => [
+                'required',
+                'email'
+            ],
+            'residence' => [
+                'required'
+            ],
+            'function' => [
+                'required'
+            ],
+            'reason' => [
+                'required'
+            ],
+            'location' => [
+                'required'
+            ],
         ];
     }
 }

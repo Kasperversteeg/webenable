@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use Illuminate\Http\Request;
+use App\Http\Requests\ApplicationRequest;
 
 class ApplicationController extends Controller
 {
@@ -15,7 +16,7 @@ class ApplicationController extends Controller
     public function index()
     {
         $components = [
-            'requests' => Application::all(),
+            'applications' => Application::all(),
         ];
         return view('application-index', $components);
     }
@@ -36,9 +37,24 @@ class ApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ApplicationRequest $request, Application $application)
     {
-        //
+       $application->gender = $request->get('gender');
+       $application->name = $request->get('name');
+       $application->surname = $request->get('surname');
+       $application->mail = $request->get('mail');
+       $application->phone = $request->get('phone');
+       $application->residence = $request->get('residence');
+       $application->expertise = $request->get('expertise');
+       $application->education = $request->get('education');
+       $application->function = $request->get('function');
+       $application->reason = $request->get('reason');
+       $application->location = $request->get('location');
+       $application->remark = $request->get('remark');
+       
+       $application->save();
+
+       return redirect()->route('application.index')->with('succes', 'Uw inschrijving is ontvangen!');
     }
 
     /**
@@ -47,9 +63,12 @@ class ApplicationController extends Controller
      * @param  \App\Models\Application  $Application
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $Application)
+    public function show(Application $application)
     {
-        //
+        $components = [
+            'application' => $application,
+        ];
+        return view('application-show', $components);
     }
 
     /**
