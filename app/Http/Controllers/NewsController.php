@@ -33,9 +33,11 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request, News $news)
+    {   
+        $news->title = $request->get('title');
+        $news->content = $request->get('content');
+        $news->save();
     }
 
     /**

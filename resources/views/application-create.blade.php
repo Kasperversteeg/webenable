@@ -48,8 +48,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<label for="phone">Telefoon</label>
-					<input type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" placeholder="0612345678" value="{{ old('phone') }}" pattern="[0-9]{10}"
-					required>
+					<input type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" placeholder="0612345678" value="{{ old('phone') }}" pattern="[0-9]{10}">
 					@error('phone')<div class="invalid-feedback">{{ $message }}</div>@enderror
 				</div>
 				<div class="form-group col-md-4">
