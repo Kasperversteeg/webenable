@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'content'];
+
+    public function count()
+    {
+        return $this->all()->count();
+    }
+
+    public function getLatestNewsItems($number)
+    {
+        return $this->orderBy('created_at')->take($number)->get();
+    }
+
+
 }
