@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ApplicationTest extends TestCase
+class ApplicationsTest extends TestCase
 {
     use WithFaker, RefreshDatabase;
 
@@ -35,6 +35,17 @@ class ApplicationTest extends TestCase
 
         $this->get('/application')->assertSee($attributes['name']);
     }
+    /** @test */ 
+    public function can_view_a_application()
+    {
+        $application = Application::factory()->create();
+
+        $this->get('/application/'. $application->id)
+            ->assertSee($application->name)
+            ->assertSee($application->surname);
+    }
+
+
     /** @test */ 
     public function application_requires_name()
     {
